@@ -1,4 +1,4 @@
-<?php namespace App\Providers;
+<?php namespace PhotoShots\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
