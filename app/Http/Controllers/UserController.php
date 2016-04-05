@@ -6,7 +6,7 @@ use PhotoShots\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class UserController extends Controller {
-{
+
 
 //The middleware tell us if the user has a valid sesion
 	public function __construct()
