@@ -16,11 +16,10 @@
 Route::controllers
 ([
 	//This is going to be managed by the WelcomeController
-	'/' => 'WelcomeController',
 	'home' => 'HomeController',
 	'auth' => 'Auth\AuthController',
 	'validated/user' => 'UserController',
 	'validated/photos' => 'PhotoController',
 	'validated/albums' => 'AlbumController',
-	
+	'/' => 'WelcomeController',
 ]);
