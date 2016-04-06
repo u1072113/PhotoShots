@@ -34,14 +34,14 @@
 								<input type="password" class="form-control" name="password">
 							</div>
 						</div>
-//Here we need to add the question when recovering the password
+
 						<div class="form-group">
 							<label class="col-md-4 control-label">Question</label>
 							<div class="col-md-6">
 								<input type="text" class="form-control" name="question">
 							</div>
 						</div>
-//Here we need to add the answer when recovering the password
+
 						<div class="form-group">
 							<label class="col-md-4 control-label">Answer</label>
 							<div class="col-md-6">
