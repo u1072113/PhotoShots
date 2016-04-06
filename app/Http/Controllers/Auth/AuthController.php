@@ -35,4 +35,14 @@ class AuthController extends Controller {
 		$this->middleware('guest', ['except' => 'getLogout']);
 	}
 
+//This function is to recover the password.
+	public function getRecoverPassword()
+	{
+		return view('auth.recover');
+	}
+	public function postRecoverPassword()
+	{
+		return 'recovering password';
+	}
 }
+
