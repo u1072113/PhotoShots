@@ -28,7 +28,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">PhotoShots</a>
+				<a class="navbar-brand" href="#">PhotoShots by Robert Calin</a>
 			</div>
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -37,7 +37,7 @@
 					<li><a href="/">Home</a></li>
 
 					@if (Auth::check())
-					<li><a href="/validated/albums">My Albums</a></li>
+					<li><a href="/validated/albums">My albums</a></li>
 					@endif
 
 				</ul>
