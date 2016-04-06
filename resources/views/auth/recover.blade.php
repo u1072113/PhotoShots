@@ -5,7 +5,7 @@
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<div class="panel panel-default">
-				<div class="panel-heading">Register</div>
+				<div class="panel-heading">Recover your PhotoShots password</div>
 				<div class="panel-body">
 					@if (count($errors) > 0)
 						<div class="alert alert-danger">
@@ -36,6 +36,13 @@
 						</div>
 
 						<div class="form-group">
+							<label class="col-md-4 control-label">Confirm Password</label>
+							<div class="col-md-6">
+								<input type="password" class="form-control" name="password_confirmation">
+							</div>
+						</div>
+
+						<div class="form-group">
 							<label class="col-md-4 control-label">Question</label>
 							<div class="col-md-6">
 								<input type="text" class="form-control" name="question">
@@ -45,7 +52,6 @@
 						<div class="form-group">
 							<label class="col-md-4 control-label">Answer</label>
 							<div class="col-md-6">
-							//Here we need to add the question and the answer when recovering the password
 								<input type="password" class="form-control" name="answer">
 							</div>
 						</div>
