@@ -11,11 +11,16 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
+//Here we need to define our controllers.
 
-Route::get('home', 'HomeController@index');
-
-Route::controllers([
+Route::controllers
+([
+	//This is going to be managed by the WelcomeController
+	'/' => 'WelcomeController',
+	'home' => 'HomeController',
 	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
+	'validated/user' => 'UserController',
+	'validated/photos' => 'PhotoController',
+	'validated/albums' => 'AlbumController',
+	
 ]);
