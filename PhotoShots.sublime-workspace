@@ -3,6 +3,14 @@
 	{
 		"selected_items":
 		[
+			[
+				"Album",
+				"Album"
+			],
+			[
+				"Photo",
+				"PhotoShots"
+			]
 		]
 	},
 	"buffers":
@@ -57,10 +65,51 @@
 	},
 	"expanded_folders":
 	[
-		"/D/xampp/htdocs/PhotoShots"
+		"/D/xampp/htdocs/PhotoShots",
+		"/D/xampp/htdocs/PhotoShots/app",
+		"/D/xampp/htdocs/PhotoShots/app/Exceptions",
+		"/D/xampp/htdocs/PhotoShots/app/Http",
+		"/D/xampp/htdocs/PhotoShots/app/Http/Controllers",
+		"/D/xampp/htdocs/PhotoShots/app/Http/Controllers/Auth",
+		"/D/xampp/htdocs/PhotoShots/app/Http/Middleware",
+		"/D/xampp/htdocs/PhotoShots/app/Services",
+		"/D/xampp/htdocs/PhotoShots/database",
+		"/D/xampp/htdocs/PhotoShots/database/migrations",
+		"/D/xampp/htdocs/PhotoShots/database/seeds",
+		"/D/xampp/htdocs/PhotoShots/resources",
+		"/D/xampp/htdocs/PhotoShots/resources/views",
+		"/D/xampp/htdocs/PhotoShots/resources/views/errors",
+		"/D/xampp/htdocs/PhotoShots/vendor"
 	],
 	"file_history":
 	[
+		"/D/xampp/htdocs/PhotoShots/app/Http/Controllers/PhotoController.php",
+		"/D/xampp/htdocs/PhotoShots/resources/views/auth/login.blade.php",
+		"/D/xampp/htdocs/PhotoShots/resources/views/app.blade.php",
+		"/D/xampp/htdocs/PhotoShots/resources/views/welcome.blade.php",
+		"/D/xampp/htdocs/PhotoShots/resources/views/errors/404.blade.php",
+		"/D/xampp/htdocs/PhotoShots/resources/views/auth/register.blade.php",
+		"/D/xampp/htdocs/PhotoShots/app/User.php",
+		"/D/xampp/htdocs/PhotoShots/app/Album.php",
+		"/D/xampp/htdocs/PhotoShots/app/Photo.php",
+		"/D/xampp/htdocs/PhotoShots/app/Http/Controllers/WelcomeController.php",
+		"/D/xampp/htdocs/PhotoShots/app/Http/Controllers/HomeController.php",
+		"/D/xampp/htdocs/PhotoShots/app/Http/Controllers/UserController.php",
+		"/D/xampp/htdocs/PhotoShots/app/Http/Controllers/AlbumController.php",
+		"/D/xampp/htdocs/PhotoShots/app/Http/routes.php",
+		"/D/xampp/htdocs/PhotoShots/app/Http/Middleware/Authenticate.php",
+		"/D/xampp/htdocs/PhotoShots/database/migrations/2014_10_12_000000_create_users_table.php",
+		"/D/xampp/htdocs/PhotoShots/database/migrations/2016_04_04_235547_create_albums_table.php",
+		"/D/xampp/htdocs/PhotoShots/database/seeds/DatabaseSeeder.php",
+		"/D/xampp/htdocs/PhotoShots/database/seeds/AlbumTableSeeder.php",
+		"/D/xampp/htdocs/PhotoShots/.env",
+		"/D/xampp/htdocs/PhotoShots/app/Exceptions/Handler.php",
+		"/D/xampp/htdocs/PhotoShots/resources/views/errors/default.blade.php",
+		"/D/xampp/htdocs/PhotoShots/app/Http/Controllers/Auth/AuthController.php",
+		"/D/xampp/htdocs/PhotoShots/resources/views/home.blade.php",
+		"/D/xampp/htdocs/PhotoShots/resources/views/auth/recover.blade.php",
+		"/D/xampp/htdocs/PhotoShots/database/migrations/2016_04_04_235622_create_photos_table.php",
+		"/D/xampp/htdocs/PhotoShots/database/seeds/UserTableSeeder.php",
 		"/G/StudioByte/Clients/Cara Meehan/FindHackingFiles/wordpress-3.6.1/wordpress/wp-content/index.php",
 		"/G/StudioByte/Clients/Cara Meehan/FindHackingFiles/wordpress-3.6.1/wordpress/wp-includes/functions.php",
 		"/G/StudioByte/Clients/Cara Meehan/FindHackingFiles/index.php",
@@ -188,7 +237,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 150.0,
+	"side_bar_width": 398.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
