@@ -18,6 +18,12 @@
 						</div>
 					@endif
 
+					@if(Session::has('success'))
+						
+					<div class="alert alert-danger">
+						<strong>Great!</strong> {{Session::get('success')}}<br><br>
+					</div>
+					@endif
 					<form class="form-horizontal" role="form" method="POST" action="/auth/login">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
