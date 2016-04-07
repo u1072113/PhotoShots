@@ -1,19 +1,24 @@
 <?php namespace PhotoShots\Exceptions;
 
-use Exception;
+  use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
-
+use Symfony\Component\HttpKernel\Exception\HttpException;
+use Illuminate\Validation\ValidationException;
+use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 class Handler extends ExceptionHandler {
-
 	/**
 	 * A list of the exception types that should not be reported.
 	 *
 	 * @var array
 	 */
 	protected $dontReport = [
-		'Symfony\Component\HttpKernel\Exception\HttpException'
+	    AuthorizationException::class,
+	    HttpException::class,
+	    ModelNotFoundException::class,
+	    ValidationException::class,
 	];
-
 	/**
 	 * Report or log an exception.
 	 *
@@ -26,7 +31,6 @@ class Handler extends ExceptionHandler {
 	{
 		return parent::report($e);
 	}
-
 	/**
 	 * Render an exception into an HTTP response.
 	 *
@@ -36,14 +40,29 @@ class Handler extends ExceptionHandler {
 	 */
 	public function render($request, Exception $e)
 	{
-		if ($this->isHttpException($e))
+		if(config('app.debug'))
+		{
+			return parent::render($request, $e);
+		}
+		elseif ($this->isHttpException($e))
 		{
 			return $this->renderHttpException($e);
 		}
 		else
 		{
-			return parent::render($request, $e);
+			return redirect('/')->withErrors('Unexpected Error. Try later.');
 		}
 	}
-
+	protected function renderHttpException(HttpException $e)
+	{
+		$status = $e->getStatusCode();
+		if (view()->exists("errors.{$status}"))
+		{
+			return response()->view("errors.{$status}", [], $status);
+		}
+		else
+		{
+			return response()->view("errors.default", [], $status);
+		}
+	}
 }

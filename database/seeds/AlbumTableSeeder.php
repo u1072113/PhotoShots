@@ -17,7 +17,7 @@ class AlbumTableSeeder extends Seeder {
 	{
 
 	$users = User::all();
-
+//This will populate the album table inside the database with description of the album and whose user it belongs to.
 	foreach ($users as $user)
 	{
 
