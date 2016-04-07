@@ -18,7 +18,7 @@ class CreateAlbumsTable extends Migration {
 			$table->string('title');
 			$table->string('description');
 			$table->integer('user_id')->unsigned();
-			$table->foreing('user_id')->references('id')->on('users');
+			$table->foreign('user_id')->references('id')->on('users');
 			$table->timestamps();
 		});
 	}
