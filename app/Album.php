@@ -13,11 +13,11 @@ class Album extends Model {
 
 	public function owner()
 	{
-		return belongsTo('PhotoShots\User');
+		return $this->belongsTo('PhotoShots\User');
 	}
 
 	public function photos()
 	{
-		return hasMany('PhotoShots\Photo');
+		return $this->hasMany('PhotoShots\Photo');
 	}
 }

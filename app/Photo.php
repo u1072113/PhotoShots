@@ -12,7 +12,7 @@ class Photo extends Model {
 	//BelongsTo indicates that this model must have album_id as foreign key as Photos belongs to an album
 	public function album()
 	{
-		return belongsTo('PhotoShots\Album');
+		return $this->belongsTo('PhotoShots\Album');
 	}
 
 }

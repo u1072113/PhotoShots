@@ -5,6 +5,9 @@ use PhotoShots\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
+use PhotoShots\Album;
+use Auth;
+
 class AlbumController extends Controller {
 
 	//Here we also need to check if the user has authentificated.
@@ -15,7 +18,9 @@ class AlbumController extends Controller {
 
 	public function getIndex()
 	{
-		return 'Showing all the user Albums';
+		// Here we imported the motheod for the albums to show on the page.
+		$albums = Auth::user()->albums;
+		return view('albums.show', ['albums' => $albums]);
 	}
 
 	public function getCreateAlbum()

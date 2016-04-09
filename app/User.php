@@ -35,6 +35,6 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	//Here we add the relation between the models, defining that an user has albums
 	public function albums()
 	{
-		return hasMany('PhotoShots\Album');
+		return $this->hasMany('PhotoShots\Album');
 	}
 }
