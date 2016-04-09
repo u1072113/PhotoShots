@@ -18,8 +18,7 @@
 						</div>
 					@endif
 
-					@if(Session::has('success'))
-						
+					@if(Session::has('success'))	
 					<div class="alert alert-success">
 						<strong>Great!</strong> {{Session::get('success')}}<br><br>
 					</div>

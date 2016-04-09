@@ -4,6 +4,7 @@ use PhotoShots\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\Registrar;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+
 use PhotoShots\User;
 use PhotoShots\Http\Requests\PasswordRecoveryRequest;
 use Hash;

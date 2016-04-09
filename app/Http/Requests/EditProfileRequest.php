@@ -2,7 +2,7 @@
 
 use PhotoShots\Http\Requests\Request;
 
-class PasswordRecoveryRequest extends Request {
+class EditProfileRequest extends Request {
 
 	/**
 	 * Determine if the user is authorized to make this request.
@@ -21,12 +21,12 @@ class PasswordRecoveryRequest extends Request {
 	 */
 	public function rules()
 	{
-		return 
-		[
-			'email' => 'email|required|exists:users,email',
-			'password' => 'required|min:6|confirmed',
-			'question' => 'required',
-			'answer' => 'required'
+		return [
+			'name' => 'required',
+			'password' => 'min:6|confirmed',
+			'question' => 'required_with:answer',
+			'answer' => 'required_with:question'
+
 		];
 	}
 
