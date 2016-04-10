@@ -2,9 +2,10 @@
 
 use PhotoShots\Http\Requests\Request;
 
-use Auth;
 use PhotoShots\Album;
-class CreatePhotoRequest extends Request {
+use Auth;
+
+class EditAlbumRequest extends Request {
 
 	/**
 	 * Determine if the user is authorized to make this request.
@@ -13,7 +14,6 @@ class CreatePhotoRequest extends Request {
 	 */
 	public function authorize()
 	{
-		// Here we are not allowing a user to upload pictures to an album that is not his.
 		$user = Auth::user();
 		$id = $this->get('id');
 //This will find the album with the user ID which is linked to.
@@ -31,19 +31,22 @@ class CreatePhotoRequest extends Request {
 	 *
 	 * @return array
 	 */
+	// We can edit albums just for that authenticated user
 	public function rules()
 	{
 		return [
-// When uploading a photo, there are the details that has to be filled in, and no image larger than 30MB.
+			
 			'id' => 'required|exists:albums,id',
 			'title' => 'required',
-			'description' => 'required',
-			'image' => 'required|image|max:30000'
+			'description' => 'required'
+
+
 		];
 	}
-		public function forbiddenResponse()
+
+			public function forbiddenResponse()
 	{
 		return $this->redirector->to('/');
 	}
-
 }
+
