@@ -13,6 +13,7 @@ use PhotoShots\Photo;
 use Carbon\Carbon;
 
 use PhotoShots\Http\Requests\CreatePhotoRequest;
+use PhotoShots\Http\Requests\EditPhotoRequest;
 
 class PhotoController extends Controller {
 
@@ -55,14 +56,39 @@ class PhotoController extends Controller {
 		return redirect("validated/photos?id=$id")->with(['photo_created' => 'The photo has been created']);
 	}
 
-		public function getEditPhoto()
+		public function getEditPhoto($id)
 	{
-		return 'showing the Edit Photo form';
+		$photo = Photo::find($id);
+		return view('photos.edit-photo', ['photo' => $photo]);
 	}
 
-	public function postEditPhoto()
+	public function postEditPhoto(EditPhotoRequest $request)
 	{
-		return 'editing Photo';
+
+		$photo = Photo::find($request->get('id'));
+
+		$photo->title = $request->get('title');
+
+		$photo->description = $request->get('description');
+
+		//we need to verify if user sends us a new file
+
+		if($request->hasFile('image'))
+
+		{
+			$this->deleteImage($photo->path);
+
+			$image = $request->file('image');
+
+			$photo->path = $this->createImage($image);
+
+		}
+
+
+		$photo->save();
+
+
+		return redirect("validated/photos?id=$photo->album_id")->with(['edited' => 'The photo was edited']);
 	}
 
 	public function postDeletePhoto()
@@ -82,4 +108,13 @@ class PhotoController extends Controller {
 // This will return the complete path and the name of the picture
 		return $path.$name;
 	}
+// This function will delete the old path image.
+	public function deleteImage($oldpath)
+
+	{
+		$oldpath = getcwd().$oldpath;
+
+		unlink(realpath($oldpath));
+
+			}
 }
