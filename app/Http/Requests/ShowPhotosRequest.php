@@ -37,5 +37,10 @@ class ShowPhotosRequest extends Request {
 
 		];
 	}
+// This function is to improve security, when a forbidden page is accessed, the user will be redirected to the homepage.
+	public function forbiddenResponse()
+	{
+		return $this->redirector->to('/');
+	}
 
 }
