@@ -13,6 +13,7 @@ use PhotoShots\Photo;
 use Carbon\Carbon;
 
 use PhotoShots\Http\Requests\CreatePhotoRequest;
+use PhotoShots\Http\Requests\EditPhotoRequest;
 
 class PhotoController extends Controller {
 
@@ -61,7 +62,7 @@ class PhotoController extends Controller {
 		return view('photos.edit-photo', ['photo' => $photo]);
 	}
 
-	public function postEditPhoto()
+	public function postEditPhoto(EditPhotoRequest $request)
 	{
 		return 'editing Photo';
 	}
