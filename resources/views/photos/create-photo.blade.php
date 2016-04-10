@@ -17,7 +17,7 @@
 			</div>
 		</div>
 		<div class="form-group required">
-			<label class="col-md-4 control-label">Image max: 30MB</label>
+			<label class="col-md-4 control-label">Image max: 20MB</label>
 			<div class="col-md-6">
 				<input type="file" class="form-control" name="image" required>
 			</div>

@@ -2,6 +2,8 @@
 
 use PhotoShots\Http\Requests\Request;
 
+use Auth;
+use PhotoShots\Album;
 class CreatePhotoRequest extends Request {
 
 	/**
@@ -32,11 +34,13 @@ class CreatePhotoRequest extends Request {
 	public function rules()
 	{
 		return [
-
-			'id' => 'required|exist:albums, id',
-			'name' => 'required',
+// When uploading a photo, there are the details that has to be filled in, and no image larger than 30MB.
+			'id' => 'required|exists:albums,id',
+			'title' => 'required',
 			'description' => 'required',
 			'image' => 'required|image|max:30000'
 		];
 	}
 
+
+}
