@@ -10,6 +10,10 @@ use PhotoShots\Http\Requests\ShowPhotosRequest;
 use PhotoShots\Album;
 use PhotoShots\Photo;
 
+use Carbon\Carbon;
+
+use PhotoShots\Http\Requests\CreatePhotoRequest;
+
 class PhotoController extends Controller {
 
 		public function __construct()
@@ -24,14 +28,30 @@ class PhotoController extends Controller {
 		return view('photos.show',['photos' => $photos, 'id' => $request->get('id')]);
 	}
 
-	public function getCreatePhoto()
+	public function getCreatePhoto(Request $request)
 	{
-		return 'showing the create Photo form';
+		// This will allow us to create photos in our album.
+		$id = $request->get('id');
+		return view('photos.create-photo', ['id' => $id]);
 	}
 
-	public function postCreatePhoto()
+	public function postCreatePhoto(CreatePhotoRequest $request)
 	{
-		return 'creating Photo';
+		$image = $request-> file('image');
+		Photo::create
+		(
+			[
+				'title' => $request->get('title'),
+				'description' => $request->get('description'),
+				'path' => createImage($image),
+				'album_id' => $request->get('id')
+
+
+			]
+
+			);
+
+		return redirect ("validated/photos?id=$id")->with(['photo_created' => 'The photo has been added'])
 	}
 
 		public function getEditPhoto()
@@ -49,4 +69,16 @@ class PhotoController extends Controller {
 		return 'delete Photo';
 	}
 
+	function createImage($image)
+	{
+		$path = '/img/';
+// Using sha1 to encrypt the string so photos aren't going to be repeated.
+// Carbon class will return us the name and the day when the photo has been uploaded.
+		// guessExtension is to accept only image extension files
+		$name = sha1(Carbon::now()).'.'.$image->guessExtension();
+
+		$image->move(getcwd().$path, $name);
+// This will return the complete path and the name of the picture
+		return $path.$name;
+	}
 }
