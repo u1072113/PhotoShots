@@ -50,9 +50,10 @@ class AlbumController extends Controller {
 		return redirect('validated/albums/')->with(['album_created' => 'The Album has been created.']);
 	}
 
-		public function getEditAlbum()
+		public function getEditAlbum($id)
 	{
-		return 'showing the Edit album form';
+		$album = Album::find($id);
+		return view('albums.edit-album', ['album' => $album]);
 	}
 
 	public function postEditAlbum()
