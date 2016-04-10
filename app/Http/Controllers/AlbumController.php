@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use PhotoShots\Album;
 use Auth;
 
+use PhotoShots\Http\Requests\CreateAlbumRequest;
+
 class AlbumController extends Controller {
 
 	//Here we also need to check if the user has authentificated.
@@ -25,12 +27,27 @@ class AlbumController extends Controller {
 
 	public function getCreateAlbum()
 	{
-		return 'showing the create album form';
+		return view('albums.create-album');
 	}
 
-	public function postCreateAlbum()
+	public function postCreateAlbum(CreateAlbumRequest $request)
 	{
-		return 'creating album';
+// Here will be the fields when creating an album, such as Title, desciption and the user_ID so that specific album will be linked to a specific user.
+		$user = Auth::user();
+
+		$title = $request->get('title');
+		$description = $request->get('description');
+
+		Album::create
+		([
+				'title' => $title,
+				'description' => $description,
+				'user_id' => $user->id 
+			]
+			);
+		// This redirect us to the album section when an album has been created and it will be the last one.
+
+		return redirect('validated/albums/')->with(['album_created' => 'The Album has been created.']);
 	}
 
 		public function getEditAlbum()

@@ -1,7 +1,6 @@
 @extends('app')
 
 @section('content')
-
 @if(Session::has('created'))
 	<div class="alert alert-success">
 		<p>Session::get('created')</p>
@@ -17,6 +16,12 @@
 	<div class="alert alert-success">
 		<p>Session::get('deleted')</p>
 	</div>
+@endif
+
+	@if(Session::has('album_created'))	
+	 	<div class="alert alert-success">
+			<strong>Great!</strong> {{Session::get('album_created')}}<br><br>
+		</div>
 @endif
 
 <div class="container-fluid"
