@@ -4,13 +4,13 @@
 
 @if(Session::has('edited'))
 	<div class="alert alert-success">
-		<p>Session::get('edited')</p>
+		<p>{{Session::get('edited')}}</p>
 	</div>
 @endif
 
 @if(Session::has('deleted'))
 	<div class="alert alert-success">
-		<p>Session::get('deleted')</p>
+		<p>{{Session::get('deleted')}}</p>
 	</div>
 @endif
 

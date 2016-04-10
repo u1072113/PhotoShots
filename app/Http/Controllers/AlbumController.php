@@ -9,6 +9,7 @@ use PhotoShots\Album;
 use Auth;
 
 use PhotoShots\Http\Requests\CreateAlbumRequest;
+use PhotoShots\Http\Requests\EditAlbumRequest;
 
 class AlbumController extends Controller {
 
@@ -52,13 +53,22 @@ class AlbumController extends Controller {
 
 		public function getEditAlbum($id)
 	{
+		// We going to obtain the ID in this way because we obtaining the ID from the URL and not as a paramater from the request
 		$album = Album::find($id);
 		return view('albums.edit-album', ['album' => $album]);
 	}
 
-	public function postEditAlbum()
+	public function postEditAlbum(EditAlbumRequest $request)
 	{
-		return 'editing album';
+		$album = Album::find($request->get('id'));
+
+		$album->title = $request->get('title');
+		$album->description = $request->get('description');
+
+		$album->save();
+
+
+		return redirect('validated/albums')->with(['edited' => 'The albums has been edited']);
 	}
 
 	public function postDeleteAlbum()
