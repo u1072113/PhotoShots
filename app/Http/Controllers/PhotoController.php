@@ -37,21 +37,22 @@ class PhotoController extends Controller {
 
 	public function postCreatePhoto(CreatePhotoRequest $request)
 	{
-		$image = $request-> file('image');
+		$image = $request->file('image');
+		$id = $request->get('id');
 		Photo::create
 		(
 			[
 				'title' => $request->get('title'),
 				'description' => $request->get('description'),
-				'path' => createImage($image),
-				'album_id' => $request->get('id')
+				'path' => $this->createImage($image),
+				'album_id' => $id
 
 
 			]
 
 			);
 
-		return redirect ("validated/photos?id=$id")->with(['photo_created' => 'The photo has been added'])
+		return redirect("validated/photos?id=$id")->with(['photo_created' => 'The photo has been created']);
 	}
 
 		public function getEditPhoto()
@@ -69,7 +70,7 @@ class PhotoController extends Controller {
 		return 'delete Photo';
 	}
 
-	function createImage($image)
+	public function createImage($image)
 	{
 		$path = '/img/';
 // Using sha1 to encrypt the string so photos aren't going to be repeated.

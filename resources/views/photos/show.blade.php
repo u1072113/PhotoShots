@@ -14,7 +14,6 @@
 	</div>
 @endif
 
-
 @if(Session::has('photo_created'))
 	<div class="alert alert-success">
 		<p>Session::get('photo_created')</p>
