@@ -55,9 +55,10 @@ class PhotoController extends Controller {
 		return redirect("validated/photos?id=$id")->with(['photo_created' => 'The photo has been created']);
 	}
 
-		public function getEditPhoto()
+		public function getEditPhoto($id)
 	{
-		return 'showing the Edit Photo form';
+		$photo = Photo::find($id);
+		return view('photos.edit-photo', ['photo' => $photo]);
 	}
 
 	public function postEditPhoto()
