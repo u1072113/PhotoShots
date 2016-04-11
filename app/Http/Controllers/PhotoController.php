@@ -14,7 +14,7 @@ use Carbon\Carbon;
 
 use PhotoShots\Http\Requests\CreatePhotoRequest;
 use PhotoShots\Http\Requests\EditPhotoRequest;
-
+use PhotoShots\Http\Requests\DeletePhotoRequest;
 class PhotoController extends Controller {
 
 		public function __construct()
@@ -91,9 +91,14 @@ class PhotoController extends Controller {
 		return redirect("validated/photos?id=$photo->album_id")->with(['edited' => 'The photo was edited']);
 	}
 
-	public function postDeletePhoto()
+	public function postDeletePhoto(DeletePhotoRequest $request)
 	{
-		return 'delete Photo';
+
+		$photo = Photo::find($request->get('id'));
+		$this->deleteImage($photo->path);
+		$photo->delete();
+
+		return redirect("validated/photos?id=$photo->album_id")->with(['deleted' => 'The photo was deleted']);
 	}
 
 	public function createImage($image)
