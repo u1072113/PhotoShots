@@ -10,6 +10,8 @@ use Auth;
 
 use PhotoShots\Http\Requests\CreateAlbumRequest;
 use PhotoShots\Http\Requests\EditAlbumRequest;
+use PhotoShots\Http\Requests\DeleteAlbumRequest;
+use PhotoShots\Http\Controllers\PhotoController;
 
 class AlbumController extends Controller {
 
@@ -71,8 +73,20 @@ class AlbumController extends Controller {
 		return redirect('validated/albums')->with(['edited' => 'The albums has been edited']);
 	}
 
-	public function postDeleteAlbum()
+	public function postDeleteAlbum(DeleteAlbumRequest $request)
 	{
-		return 'delete album';
+		$album = Album::find($request->get('id'));
+
+		$photos = $album->photos;
+
+		$controller = new PhotoController;
+		foreach ($photos as $photo)
+		{
+			$controller->deleteImage($photo->path);
+			$photo->delete();
+		}
+
+		$album->delete();
+		return redirect('validated/albums')->with(['deleted' => 'The album was deleted']);
 	}
 }

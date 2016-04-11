@@ -16,7 +16,7 @@
 
 @if(Session::has('photo_created'))
 	<div class="alert alert-success">
-		<p>Session::get('photo_created')</p>
+		<p>{{Session::get('photo_created')}}</p>
 	</div>
 @endif
 
