@@ -19,6 +19,7 @@
 				@endif
 					<div class="panel-heading">Home</div>
 
+
 					<div class="panel-body">
 						Welcome to PhotoShots, please <a class="blue-link" href="/auth/login">login</a> or <a class="blue-link" href="/auth/register">create</a> an account with us.
 					</div>
