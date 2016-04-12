@@ -1,5 +1,8 @@
 <?php namespace PhotoShots\Http\Controllers;
-
+use PhotoShots\Album;
+use Carbon\Carbon;
+use DB;
+use Json\Json;
 class WelcomeController extends Controller {
 
 	/*
@@ -29,7 +32,7 @@ class WelcomeController extends Controller {
 	 * @return Response
 	 */
 	public function getIndex()
-	{
+	{	
 		return view('welcome');
 	}
 
