@@ -1,0 +1,20 @@
+body{
+    height: 615px;
+    background-image: url("/img/backgrounds/main-bg2.jpg");
+    background-size: 100%;
+}
+.page-wrap{
+	background: white;
+	padding: 20px;
+	border-radius: 10px;
+}
+#stats-container svg{
+	width: 100%;
+}
+.stats-header{
+	text-align: center;
+}
+.blue-link{
+	color: #0B62A4;
+	font-weight: 900;
+}

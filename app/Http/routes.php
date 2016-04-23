@@ -16,6 +16,7 @@
 Route::controllers
 ([
 	//This is going to be managed by the WelcomeController
+	'get-stats' => 'StatisticsController',
 	'home' => 'HomeController',
 	'auth' => 'Auth\AuthController',
 	'validated/user' => 'UserController',
