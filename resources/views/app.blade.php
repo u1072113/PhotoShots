@@ -38,6 +38,8 @@
 
 					@if (Auth::check())
 					<li><a href="/validated/albums">My albums</a></li>
+					<li><a href="/validated/albums">Favourites</a></li>
+
 					@endif
 
 				</ul>

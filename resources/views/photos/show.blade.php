@@ -34,6 +34,9 @@
 		        <h3>{{$photo->title}}</h3>
 		        <p>{{$photo->description}}</p>
 		      </div>
+
+		      <p><a href="/validated/photos/edit-photo/{{$photo->id}}" class="btn btn-primary" role="button">Download</a></p>
+
 		      <p><a href="/validated/photos/edit-photo/{{$photo->id}}" class="btn btn-primary" role="button">Edit Photo</a></p>
 		      <form action="/validated/photos/delete-photo" method="POST">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}" required>
