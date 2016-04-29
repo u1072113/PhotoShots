@@ -1,23 +1,31 @@
-## Laravel PHP Framework
+Photoshots by Robert Calin
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/downloads.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+Login:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+username: admin@mail.com
+password: password
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
 
-## Official Documentation
+Introduction
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+I am a part time photographer and I have decided to create a web application which will make my work easier. Usually after photoshoots I have to pass the photographs to my client.
+I have developed a website in Laravel which allow users to register to the application, create albums and add pictures within the albums.
 
-## Contributing
+How does it work?
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+1.	Homepage
+The home page of the application allows users to login and create an account but also see statistics of how many albums has been created in the past 30 days.
 
-### License
+2.	Registration
+User will be able to register with their details such as name, email address, password, a question in order to be answered with the secret answer if the user forgets the password.
+3.	Once the user is logged in.
+Albums can be created with a title and description.
+Photos can be added inside the albums, with a title and description, pictures can’t be larger than 30MB.
+Photos and albums have an edit and a delete button, the edit button will edit the title and description.
+User can edit his/her profile; updating name, email address, password.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+The photo ID is linked to an album then an album is linked to an user, this is how information is being pulled.
+
+
+
+
