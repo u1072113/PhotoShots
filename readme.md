@@ -5,6 +5,7 @@ Login:
 username: admin@mail.com
 password: password
 
+see the video of this project at https://youtu.be/BztGzs62rKc
 
 Introduction
 
